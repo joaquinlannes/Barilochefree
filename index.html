@@ -7,19 +7,19 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,Helvetica,sans-serif;background:#000;color:#fff}
+body{font-family:Arial;background:#000;color:#fff}
 
 /* NAV */
 header{
   position:fixed;top:0;width:100%;
   padding:20px 40px;
-  display:flex;justify-content:space-between;align-items:center;
+  display:flex;justify-content:space-between;
   background:rgba(0,0,0,0.5);
   backdrop-filter:blur(10px);
   z-index:1000;
 }
-header h1{letter-spacing:3px;font-size:16px}
-header a{color:#fff;text-decoration:none;margin-left:25px;font-size:14px}
+header h1{letter-spacing:3px;font-size:14px}
+header a{color:#fff;text-decoration:none;margin-left:20px;font-size:13px}
 
 /* HERO */
 .hero{
@@ -28,17 +28,28 @@ header a{color:#fff;text-decoration:none;margin-left:25px;font-size:14px}
   display:flex;align-items:center;justify-content:center;text-align:center;
 }
 .hero h2{
-  font-size:50px;
+  font-size:55px;
   letter-spacing:4px;
   background:rgba(0,0,0,0.4);
-  padding:15px 25px;
+  padding:20px 30px;
 }
 
-/* SECCIONES */
-.section{padding:100px 30px;text-align:center}
-.section h2{margin-bottom:30px;letter-spacing:3px}
+/* FRASE MARCA */
+.brand{
+  padding:80px 20px;
+  text-align:center;
+  font-size:28px;
+  letter-spacing:2px;
+}
+.brand span{
+  opacity:0.5;
+  font-size:16px;
+  display:block;
+  margin-top:10px;
+}
 
 /* EXPERIENCIAS */
+.section{padding:100px 30px;text-align:center}
 .cards{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -52,24 +63,36 @@ header a{color:#fff;text-decoration:none;margin-left:25px;font-size:14px}
   background:linear-gradient(to top,rgba(0,0,0,0.8),transparent);
 }
 
-/* GALERIA */
+/* GALERIA PRO */
 .gallery{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:15px;
 }
-.gallery img{
+.item{
+  position:relative;
+  overflow:hidden;
+}
+.item img{
   width:100%;height:300px;
   object-fit:cover;
-  cursor:pointer;
   transition:0.4s;
 }
-.gallery img:hover{transform:scale(1.05)}
+.item:hover img{transform:scale(1.1)}
+
+.overlay{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  padding:20px;
+  background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);
+  font-size:18px;
+  letter-spacing:1px;
+}
 
 /* LIGHTBOX */
 .lightbox{
   position:fixed;
-  top:0;left:0;
   width:100%;height:100%;
   background:rgba(0,0,0,0.95);
   display:none;
@@ -83,22 +106,18 @@ header a{color:#fff;text-decoration:none;margin-left:25px;font-size:14px}
 }
 .lightbox.active{display:flex}
 
-/* ESENCIA */
-.quote{
-  font-size:22px;
-  max-width:700px;
-  margin:auto;
-  opacity:0.7;
-}
-
 /* CTA */
+.cta{
+  padding:100px 20px;
+  text-align:center;
+}
+.cta h2{margin-bottom:20px}
 .cta a{
   display:inline-block;
-  margin-top:20px;
   padding:15px 25px;
   border:1px solid #fff;
-  text-decoration:none;
   color:#fff;
+  text-decoration:none;
 }
 .cta a:hover{
   background:#fff;
@@ -115,10 +134,9 @@ header a{color:#fff;text-decoration:none;margin-left:25px;font-size:14px}
   padding:14px 18px;
   border-radius:50px;
   text-decoration:none;
-  font-weight:bold;
 }
 
-/* ANIMACIONES */
+/* ANIMACION */
 .fade{opacity:0;transform:translateY(40px);transition:1s}
 .fade.show{opacity:1;transform:translateY(0)}
 
@@ -132,13 +150,17 @@ header a{color:#fff;text-decoration:none;margin-left:25px;font-size:14px}
   <div>
     <a href="#exp">Experiencias</a>
     <a href="#gal">Galería</a>
-    <a href="#esencia">Esencia</a>
-    <a href="#contacto">Contacto</a>
+    <a href="#contacto">Reservar</a>
   </div>
 </header>
 
 <section class="hero">
-  <h2>EXPERIENCIAS REALES</h2>
+  <h2>ONLY LOCALS</h2>
+</section>
+
+<section class="brand">
+  Spots secretos. Lugares reales. Experiencias que no están en Google.
+  <span>No es turismo. Es Bariloche de verdad.</span>
 </section>
 
 <section id="exp" class="section fade">
@@ -146,15 +168,15 @@ header a{color:#fff;text-decoration:none;margin-left:25px;font-size:14px}
   <div class="cards">
     <div class="card">
       <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_0381.jpeg">
-      <div class="info">Aventura en montaña</div>
+      <div class="info">Caminos ocultos</div>
     </div>
     <div class="card">
       <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_0455.jpeg">
-      <div class="info">Naturaleza pura</div>
+      <div class="info">Lagunas secretas</div>
     </div>
     <div class="card">
       <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_0463.jpeg">
-      <div class="info">Momentos únicos</div>
+      <div class="info">Aventura real</div>
     </div>
   </div>
 </section>
@@ -163,66 +185,59 @@ header a{color:#fff;text-decoration:none;margin-left:25px;font-size:14px}
   <h2>Galería</h2>
   <div class="gallery">
 
-    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_0364.jpeg">
-    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_0664.jpeg">
-    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_1083.jpeg">
-    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_6857.png">
-    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_6858.png">
-    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_6859.png">
-    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_6861.png">
-    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_6862.png">
-    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_6863.png">
-    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_6864.png">
+    <div class="item">
+      <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_0364.jpeg">
+      <div class="overlay">Spot secreto</div>
+    </div>
+
+    <div class="item">
+      <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_0664.jpeg">
+      <div class="overlay">Only locals</div>
+    </div>
+
+    <div class="item">
+      <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_1083.jpeg">
+      <div class="overlay">Hidden place</div>
+    </div>
+
+    <div class="item">
+      <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_6857.png">
+      <div class="overlay">Aventura real</div>
+    </div>
 
   </div>
 </section>
 
-<section id="esencia" class="section fade">
-  <h2>Esencia</h2>
-  <p class="quote">
-    No es turismo. Es vivir Bariloche de verdad.
-  </p>
+<section id="contacto" class="cta fade">
+  <h2>Reservá tu experiencia</h2>
+  <a href="https://wa.me/549XXXXXXXXXX" target="_blank">Hablar por WhatsApp</a>
 </section>
 
-<section id="contacto" class="section cta fade">
-  <h2>Contacto</h2>
-  <a href="#">Reservar experiencia</a>
-</section>
-
-<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
-  <img src="" id="lightbox-img">
+  <img id="lightbox-img">
 </div>
 
-<!-- WHATSAPP (CAMBIAR NUMERO) -->
-<a class="whatsapp" href="https://wa.me/549XXXXXXXXXX" target="_blank">
-  WhatsApp
-</a>
+<a class="whatsapp" href="https://wa.me/549XXXXXXXXXX">WhatsApp</a>
 
 <script>
 // LIGHTBOX
-const images = document.querySelectorAll('.gallery img');
+const items = document.querySelectorAll('.item img');
 const lightbox = document.getElementById('lightbox');
 const lightImg = document.getElementById('lightbox-img');
 
-images.forEach(img=>{
-  img.addEventListener('click',()=>{
+items.forEach(img=>{
+  img.onclick=()=>{
     lightbox.classList.add('active');
-    lightImg.src = img.src;
-  });
+    lightImg.src=img.src;
+  }
 });
+lightbox.onclick=()=>lightbox.classList.remove('active');
 
-lightbox.addEventListener('click',()=>{
-  lightbox.classList.remove('active');
-});
-
-// ANIMACIONES SCROLL
-const faders = document.querySelectorAll('.fade');
-
-window.addEventListener('scroll', ()=>{
+// SCROLL
+const faders=document.querySelectorAll('.fade');
+window.addEventListener('scroll',()=>{
   faders.forEach(el=>{
-    const top = el.getBoundingClientRect().top;
-    if(top < window.innerHeight - 100){
+    if(el.getBoundingClientRect().top < window.innerHeight-100){
       el.classList.add('show');
     }
   });
