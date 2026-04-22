@@ -1,94 +1,148 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Bariloche Free</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: #0a0a0a;
-      color: white;
-    }
+<title>Bariloche Free</title>
 
-    header {
-      height: 100vh;
-      background: url('IMG_0364.jpeg') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
 
-    header h1 {
-      font-size: 50px;
-      letter-spacing: 4px;
-      background: rgba(0,0,0,0.5);
-      padding: 20px;
-    }
+<style>
 
-    .galeria {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      padding: 20px;
-    }
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
 
-    .galeria img {
-      width: 100%;
-      border-radius: 10px;
-      transition: transform 0.3s;
-    }
+/* HERO */
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)),
+              url('IMG_0364.jpeg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
-    .galeria img:hover {
-      transform: scale(1.05);
-    }
+.hero h1 {
+  font-size: 60px;
+  letter-spacing: 6px;
+  animation: fadeIn 2s ease;
+}
 
-    .btn-wsp {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25D366;
-      color: white;
-      padding: 15px 18px;
-      border-radius: 50%;
-      font-size: 20px;
-      text-decoration: none;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    }
+/* GALERÍA */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  padding: 40px;
+}
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 30px;
-      }
+.galeria img {
+  width: 100%;
+  border-radius: 12px;
+  transition: transform 0.4s, filter 0.4s;
+}
 
-      .galeria {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+.galeria img:hover {
+  transform: scale(1.07);
+  filter: brightness(1.2);
+}
+
+/* SECCIÓN TEXTO */
+.section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+/* ANIMACIÓN */
+.hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* BOTÓN WHATSAPP */
+.wsp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 22px;
+  text-decoration: none;
+  color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+  .hero h1 {
+    font-size: 35px;
+  }
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h1>BARILOCHE FREE</h1>
-  </header>
+<!-- HERO -->
+<section class="hero">
+  <h1>BARILOCHE FREE</h1>
+</section>
 
-  <section class="galeria">
-    <img src="IMG_0381.jpeg">
-    <img src="IMG_0455.jpeg">
-    <img src="IMG_0463.jpeg">
-    <img src="IMG_0664.jpeg">
-    <img src="IMG_1083.jpeg">
-  </section>
+<!-- TEXTO -->
+<section class="section hidden">
+  <h2>Explorá Bariloche como nunca</h2>
+  <p>Experiencias únicas, paisajes épicos y aventuras reales.</p>
+</section>
 
-  <!-- BOTÓN WHATSAPP -->
-  <a class="btn-wsp" href="https://wa.me/5492944204802" target="_blank">
-    💬
-  </a>
+<!-- GALERÍA -->
+<section class="galeria">
+  <img src="IMG_0381.jpeg">
+  <img src="IMG_0455.jpeg">
+  <img src="IMG_0463.jpeg">
+  <img src="IMG_0664.jpeg">
+  <img src="IMG_1083.jpeg">
+</section>
+
+<!-- WHATSAPP -->
+<a class="wsp" href="https://wa.me/549XXXXXXXXXX" target="_blank">💬</a>
+
+<script>
+// animación al scrollear
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+});
+
+document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
