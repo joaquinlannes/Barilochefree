@@ -14,12 +14,13 @@ body {
   font-family: 'Montserrat', sans-serif;
   background: black;
   color: white;
+  overflow-x: hidden;
 }
 
-/* HERO CON TU FOTO */
+/* HERO */
 .hero {
   height: 100vh;
-  background: url('foto3.jpg') center/cover no-repeat;
+  background: url('IMG_8273.JPG') center/cover no-repeat;
   display: flex;
   align-items: flex-end;
   padding: 30px;
@@ -28,10 +29,6 @@ body {
 .hero h1 {
   font-size: 2.5em;
   font-weight: 900;
-}
-
-.hero p {
-  opacity: 0.8;
 }
 
 .btn {
@@ -44,6 +41,20 @@ body {
   margin-top: 15px;
 }
 
+/* SECCIONES */
+.section {
+  padding: 80px 20px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* GALERIA */
 .gallery {
   display: grid;
@@ -54,45 +65,27 @@ body {
   width: 100%;
   height: 300px;
   object-fit: cover;
+  transition: transform 0.6s ease;
 }
 
-/* FRASE */
-.section {
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.section h2 {
-  font-size: 2em;
-}
-
-/* CTA */
-.cta {
-  text-align: center;
-  padding: 50px 20px;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  opacity: 0.5;
+/* HOVER EFECTO */
+.gallery img:hover {
+  transform: scale(1.08);
 }
 
 /* DESKTOP */
 @media (min-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
-.hero h1 {
-  font-size: 4em;
-}
+  .gallery img {
+    height: 400px;
+  }
 
-.gallery {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.gallery img {
-  height: 400px;
-}
-
+  .hero h1 {
+    font-size: 4em;
+  }
 }
 
 </style>
@@ -105,7 +98,7 @@ footer {
   <div>
     <h1>BARILOCHE FREERIDE</h1>
     <p>No vengas a mirar. Vení a vivirlo.</p>
-    <a class="btn" href="https://wa.me/5492944204802">Reservar</a>
+    <a class="btn" href="https://wa.me/TUNUMERO">Reservar</a>
   </div>
 </div>
 
@@ -114,7 +107,7 @@ footer {
   <h2>Esto no es turismo. Es experiencia.</h2>
 </div>
 
-<!-- GALERIA CON TUS FOTOS -->
+<!-- GALERIA -->
 <div class="gallery">
   <img src="IMG_8273.JPG">
   <img src="IMG_8274.JPG">
@@ -125,14 +118,26 @@ footer {
 </div>
 
 <!-- CTA -->
-<div class="cta">
+<div class="section">
   <h2>¿Listo para vivirlo?</h2>
-  <a class="btn" href="https://instagram.com/@bariloche_voy">Ver Instagram</a>
+  <a class="btn" href="https://instagram.com/TUUSUARIO">Ver Instagram</a>
 </div>
 
-<footer>
-  © 2026 Freeride Bariloche
-</footer>
+<script>
+
+/* ANIMACIÓN AL SCROLL */
+const sections = document.querySelectorAll('.section');
+
+window.addEventListener('scroll', () => {
+  sections.forEach(sec => {
+    const top = sec.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      sec.classList.add('visible');
+    }
+  });
+});
+
+</script>
 
 </body>
 </html>
