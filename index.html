@@ -3,142 +3,140 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bariloche Free</title>
+<title>BarilocheFree | Experiencias reales</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;900&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial;background:#000;color:#fff}
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: black;
+  color: white;
+  overflow-x: hidden;
+}
 
 /* NAV */
-header{
-  position:fixed;top:0;width:100%;
-  padding:20px 30px;
-  display:flex;justify-content:space-between;
-  background:rgba(0,0,0,0.4);
-  backdrop-filter:blur(10px);
-  z-index:1000;
-}
-header h1{font-size:14px;letter-spacing:2px}
-header a{color:#fff;text-decoration:none;margin-left:15px;font-size:13px}
-
-/* HERO */
-.hero{
-  height:100vh;
-  background:url('https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_0086.jpeg') center/cover no-repeat;
-  display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
-  position:relative;
-}
-.hero::after{
-  content:'';
-  position:absolute;
-  width:100%;height:100%;
-  background:linear-gradient(to bottom,rgba(0,0,0,0.2),rgba(0,0,0,0.9));
-}
-.hero h1,.hero p,.hero a{
-  position:relative;
-  z-index:2;
-}
-.hero h1{
-  font-size:42px;
-  letter-spacing:2px;
-}
-.hero p{opacity:0.8;margin-top:10px}
-
-.btn{
-  margin-top:25px;
-  padding:14px 24px;
-  border:1px solid #fff;
-  color:#fff;
-  text-decoration:none;
-}
-.btn:hover{background:#fff;color:#000}
-
-/* FRASE MARCA */
-.brand{
-  padding:80px 20px;
-  text-align:center;
-  font-size:24px;
-  letter-spacing:2px;
-}
-.brand span{
-  display:block;
-  font-size:14px;
-  opacity:0.6;
-  margin-top:10px;
+header {
+  position: fixed;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
 }
 
-/* GALERIA */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:10px;
-}
-.item{position:relative;overflow:hidden}
-.item img{
-  width:100%;
-  height:300px;
-  object-fit:cover;
-  transition:0.4s;
-}
-.item:hover img{transform:scale(1.1)}
-
-.overlay{
-  position:absolute;
-  bottom:0;
-  width:100%;
-  padding:20px;
-  background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);
-  font-size:18px;
+.logo {
+  font-weight: 900;
+  letter-spacing: 3px;
 }
 
-/* CTA */
-.cta{
-  padding:100px 20px;
-  text-align:center;
+/* HERO VIDEO */
+.hero {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
 }
-.cta h2{margin-bottom:15px}
-.cta p{opacity:0.7;margin-bottom:20px}
-.cta a{
-  padding:15px 25px;
-  border:1px solid #fff;
-  color:#fff;
-  text-decoration:none;
+
+.hero video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-.cta a:hover{
-  background:#fff;
-  color:#000;
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3em;
+  max-width: 700px;
+}
+
+.btn {
+  margin-top: 20px;
+  padding: 15px 30px;
+  background: white;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* SECTIONS */
+.section {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #111;
+  transition: 0.3s;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.card h3 {
+  margin: 15px;
+}
+
+/* FRASE IMPACTO */
+.big-text {
+  font-size: 2.5em;
+  font-weight: 900;
+}
+
+/* TESTIMONIOS */
+.testimonial {
+  max-width: 600px;
+  margin: auto;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* FOOTER */
+footer {
+  padding: 50px;
+  text-align: center;
+  background: #000;
 }
 
 /* WHATSAPP */
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:#fff;
-  padding:14px 18px;
-  border-radius:50px;
-  text-decoration:none;
-  font-weight:bold;
-  z-index:999;
-}
-
-/* INSTAGRAM */
-.instagram{
-  position:fixed;
-  bottom:80px; /* arriba del WhatsApp */
-  right:20px;
-  background:#E1306C;
-  color:#fff;
-  width:50px;
-  height:50px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
-  font-size:22px;
-  text-decoration:none;
-  z-index:999;
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
 }
 </style>
 </head>
@@ -146,75 +144,76 @@ header a{color:#fff;text-decoration:none;margin-left:15px;font-size:13px}
 <body>
 
 <header>
-  <h1>BARILOCHE FREE</h1>
-  <div>
-    <a href="#gal">Galería</a>
-    <a href="#contacto">Reservar</a>
-  </div>
+  <div class="logo">BARILOCHEFREE</div>
 </header>
 
+<!-- HERO VIDEO -->
 <section class="hero">
-  <h1>Bariloche como no lo conoce nadie</h1>
-  <p>Spots secretos. Experiencias reales.</p>
-  <a class="btn" href="#gal">Explorar</a>
+  <video autoplay muted loop>
+    <source src="https://cdn.coverr.co/videos/coverr-mountain-lake-1570/1080p.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-content">
+    <h1>Bariloche como no aparece en Google</h1>
+    <a class="btn" href="#experiencias">Explorar experiencias</a>
+  </div>
 </section>
 
-<section class="brand">
-  ONLY LOCALS
-  <span>Acceso real. Lugares que no están en Google.</span>
+<!-- FRASE -->
+<section class="section">
+  <div class="big-text">
+    No es turismo. Es vivir Bariloche de verdad.
+  </div>
 </section>
 
-<section id="gal" class="gallery">
+<!-- EXPERIENCIAS -->
+<section id="experiencias" class="section">
+  <h2>Experiencias</h2>
 
-  <div class="item">
-    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_0086.jpeg">
-    <div class="overlay">Only locals</div>
+  <div class="cards">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
+      <h3>Atardecer secreto</h3>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+      <h3>Exploración local</h3>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1493244040629-496f6d136cc3">
+      <h3>Aventura en lagos</h3>
+    </div>
+
   </div>
-
-  <div class="item">
-    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_0364.jpeg">
-    <div class="overlay">Spot secreto</div>
-  </div>
-
-  <div class="item">
-    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_0664.jpeg">
-    <div class="overlay">Fuera del mapa</div>
-  </div>
-
-  <div class="item">
-    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_1083.jpeg">
-    <div class="overlay">Hidden Patagonia</div>
-  </div>
-
-  <div class="item">
-    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_6857.png">
-    <div class="overlay">Acceso local</div>
-  </div>
-
-  <div class="item">
-    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_6858.png">
-    <div class="overlay">Experiencia real</div>
-  </div>
-
 </section>
 
-<section id="contacto" class="cta">
+<!-- DIFERENCIAL -->
+<section class="section">
+  <h2>¿Por qué nosotros?</h2>
+  <p>No seguimos rutas turísticas. Creamos experiencias únicas.</p>
+</section>
+
+<!-- TESTIMONIO -->
+<section class="section">
+  <div class="testimonial">
+    “La mejor experiencia de mi viaje. Lugares que jamás hubiera encontrado solo.”
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="section">
   <h2>Reservá tu experiencia</h2>
-  <p>🔥 Cupos limitados esta semana</p>
-  <a href="https://wa.me/549XXXXXXXXXX?text=Hola%20quiero%20reservar%20una%20experiencia" target="_blank">
-    Hablar por WhatsApp
-  </a>
+  <a class="btn" href="https://wa.me/549XXXXXXXXXX">Hablar por WhatsApp</a>
 </section>
 
-<!-- BOTÓN INSTAGRAM -->
-<a class="instagram" href="https://instagram.com/barilochefree" target="_blank">
-  📸
-</a>
+<footer>
+  <p>© BarilocheFree</p>
+</footer>
 
-<!-- BOTÓN WHATSAPP -->
-<a class="whatsapp" href="https://wa.me/5492944204802?text=Hola%20quiero%20info" target="_blank">
-  WhatsApp
-</a>
+<a class="whatsapp" href="https://wa.me/549XXXXXXXXXX">💬</a>
 
 </body>
 </html>
