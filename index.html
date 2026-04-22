@@ -6,85 +6,26 @@
 <title>Bariloche Free</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,Helvetica,sans-serif;background:#000;color:#fff}
 
-body{background:#000;color:#fff;overflow-x:hidden;}
-<section class="galeria">
-  <h2>Galería</h2>
-  <div class="grid">
-
-    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_0364.jpeg">
-    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_0381.jpeg">
-    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_0455.jpeg">
-    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_0463.jpeg">
-    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_0664.jpeg">
-    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_1083.jpeg">
-
-    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_6857.png">
-    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_6858.png">
-    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_6859.png">
-    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_6861.png">
-    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_6862.png">
-    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_6863.png">
-    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_6864.png">
-
-  </div>
-</section>
-
-<style>
-.galeria {
-  padding: 60px 20px;
-  background: black;
-  text-align: center;
-}
-
-.galeria h2 {
-  font-size: 32px;
-  margin-bottom: 30px;
-  letter-spacing: 2px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
-}
-
-.grid img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 10px;
-  transition: 0.3s;
-}
-
-.grid img:hover {
-  transform: scale(1.05);
-}
-</style>
 /* NAV */
 header{
-  position:fixed;
-  width:100%;
-  top:0;
+  position:fixed;top:0;width:100%;
   padding:20px 40px;
-  display:flex;
-  justify-content:space-between;
+  display:flex;justify-content:space-between;align-items:center;
   background:rgba(0,0,0,0.5);
   backdrop-filter:blur(10px);
   z-index:1000;
 }
-header h1{letter-spacing:3px;font-size:16px;}
-header a{color:#fff;text-decoration:none;margin-left:25px;font-size:14px;}
+header h1{letter-spacing:3px;font-size:16px}
+header a{color:#fff;text-decoration:none;margin-left:25px;font-size:14px}
 
 /* HERO */
 .hero{
   height:100vh;
-  background:url('IMG_0364.jpeg') center/cover no-repeat;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
+  background:url('https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_0364.jpeg') center/cover no-repeat;
+  display:flex;align-items:center;justify-content:center;text-align:center;
 }
 .hero h2{
   font-size:50px;
@@ -94,14 +35,8 @@ header a{color:#fff;text-decoration:none;margin-left:25px;font-size:14px;}
 }
 
 /* SECCIONES */
-.section{
-  padding:100px 30px;
-  text-align:center;
-}
-.section h2{
-  margin-bottom:20px;
-  letter-spacing:3px;
-}
+.section{padding:100px 30px;text-align:center}
+.section h2{margin-bottom:30px;letter-spacing:3px}
 
 /* EXPERIENCIAS */
 .cards{
@@ -109,19 +44,10 @@ header a{color:#fff;text-decoration:none;margin-left:25px;font-size:14px;}
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:25px;
 }
-.card{
-  position:relative;
-  overflow:hidden;
-}
-.card img{
-  width:100%;
-  height:350px;
-  object-fit:cover;
-}
+.card{position:relative;overflow:hidden}
+.card img{width:100%;height:350px;object-fit:cover}
 .card .info{
-  position:absolute;
-  bottom:0;
-  width:100%;
+  position:absolute;bottom:0;width:100%;
   padding:20px;
   background:linear-gradient(to top,rgba(0,0,0,0.8),transparent);
 }
@@ -133,14 +59,29 @@ header a{color:#fff;text-decoration:none;margin-left:25px;font-size:14px;}
   gap:15px;
 }
 .gallery img{
-  width:100%;
-  height:300px;
+  width:100%;height:300px;
   object-fit:cover;
+  cursor:pointer;
   transition:0.4s;
 }
-.gallery img:hover{
-  transform:scale(1.05);
+.gallery img:hover{transform:scale(1.05)}
+
+/* LIGHTBOX */
+.lightbox{
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:rgba(0,0,0,0.95);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:2000;
 }
+.lightbox img{
+  max-width:90%;
+  max-height:90%;
+}
+.lightbox.active{display:flex}
 
 /* ESENCIA */
 .quote{
@@ -151,10 +92,6 @@ header a{color:#fff;text-decoration:none;margin-left:25px;font-size:14px;}
 }
 
 /* CTA */
-.cta{
-  padding:100px 20px;
-  text-align:center;
-}
 .cta a{
   display:inline-block;
   margin-top:20px;
@@ -178,7 +115,13 @@ header a{color:#fff;text-decoration:none;margin-left:25px;font-size:14px;}
   padding:14px 18px;
   border-radius:50px;
   text-decoration:none;
+  font-weight:bold;
 }
+
+/* ANIMACIONES */
+.fade{opacity:0;transform:translateY(40px);transition:1s}
+.fade.show{opacity:1;transform:translateY(0)}
+
 </style>
 </head>
 
@@ -186,125 +129,105 @@ header a{color:#fff;text-decoration:none;margin-left:25px;font-size:14px;}
 
 <header>
   <h1>BARILOCHE FREE</h1>
-  <nav>
-    <a href="#experiencias">Experiencias</a>
-    <a href="#galeria">Galería</a>
+  <div>
+    <a href="#exp">Experiencias</a>
+    <a href="#gal">Galería</a>
     <a href="#esencia">Esencia</a>
     <a href="#contacto">Contacto</a>
-  </nav>
+  </div>
 </header>
 
 <section class="hero">
-  <h2>NO ES TURISMO. ES EXPERIENCIA.</h2>
+  <h2>EXPERIENCIAS REALES</h2>
 </section>
 
-<!-- EXPERIENCIAS -->
-<section id="experiencias" class="section">
-  <h2>EXPERIENCIAS</h2>
-  <section class="section">
-  <h2>ELEGÍ TU EXPERIENCIA</h2>
-
+<section id="exp" class="section fade">
+  <h2>Experiencias</h2>
   <div class="cards">
-
     <div class="card">
-      <img src="IMG_0381.jpeg">
-      <div class="info">
-        <h3>Full Aventura</h3>
-        <p>Día completo en montaña + spots únicos.</p>
-        <a href="https://wa.me/549XXXXXXXXXX?text=Quiero%20la%20experiencia%20Full%20Aventura" target="_blank">
-          Reservar
-        </a>
-      </div>
+      <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_0381.jpeg">
+      <div class="info">Aventura en montaña</div>
     </div>
-
     <div class="card">
-      <img src="IMG_0455.jpeg">
-      <div class="info">
-        <h3>Atardecer</h3>
-        <p>Lugares secretos + vistas únicas.</p>
-        <a href="https://wa.me/549XXXXXXXXXX?text=Quiero%20la%20experiencia%20Atardecer" target="_blank">
-          Reservar
-        </a>
-      </div>
+      <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_0455.jpeg">
+      <div class="info">Naturaleza pura</div>
     </div>
-
     <div class="card">
-      <img src="IMG_0463.jpeg">
-      <div class="info">
-        <h3>Personalizada</h3>
-        <p>Armamos algo a tu medida.</p>
-        <a href="https://wa.me/549XXXXXXXXXX?text=Quiero%20una%20experiencia%20personalizada" target="_blank">
-          Consultar
-        </a>
-      </div>
+      <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_0463.jpeg">
+      <div class="info">Momentos únicos</div>
     </div>
-
-  </div>
-</section>
-  <section class="section">
-  <h2>¿POR QUÉ ELEGIR ESTO?</h2>
-  <p style="max-width:600px;margin:auto;opacity:0.8;">
-    No es una excursión tradicional. Es una experiencia real, adaptada a vos,
-    lejos de lo turístico, mostrando el Bariloche que no aparece en los mapas.
-  </p>
-</section>
-        <h3>Aventura</h3>
-        <p>Montaña, nieve y adrenalina.</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="IMG_0455.jpeg">
-      <div class="info">
-        <h3>Exploración</h3>
-        <p>Lugares que no están en mapas.</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="IMG_0463.jpeg">
-      <div class="info">
-        <h3>Momentos</h3>
-        <p>Atardeceres que no se olvidan.</p>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- GALERIA -->
-<section id="galeria" class="section">
-  <h2>GALERÍA</h2>
+<section id="gal" class="section fade">
+  <h2>Galería</h2>
   <div class="gallery">
-    <img src="IMG_0664.jpeg">
-    <img src="IMG_1083.jpeg">
-    <img src="IMG_0364.jpeg">
-    <img src="IMG_0381.jpeg">
+
+    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_0364.jpeg">
+    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_0664.jpeg">
+    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_1083.jpeg">
+    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_6857.png">
+    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_6858.png">
+    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_6859.png">
+    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_6861.png">
+    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_6862.png">
+    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_6863.png">
+    <img src="https://raw.githubusercontent.com/Barilochefree/barilochefree/main/IMG_6864.png">
+
   </div>
 </section>
 
-<!-- ESENCIA -->
-<section id="esencia" class="section">
-  <h2>ESENCIA</h2>
+<section id="esencia" class="section fade">
+  <h2>Esencia</h2>
   <p class="quote">
-    “Bariloche no se visita. Se vive. Y cada momento cuenta una historia.”
+    No es turismo. Es vivir Bariloche de verdad.
   </p>
 </section>
 
-<!-- CTA -->
-<section id="contacto" class="cta">
-  <h2>VIVILO VOS</h2>
-  <p>Reservá tu experiencia ahora</p>
-  <a href="https://wa.me/5492944204802" target="_blank">Hablar por WhatsApp</a>
+<section id="contacto" class="section cta fade">
+  <h2>Contacto</h2>
+  <a href="#">Reservar experiencia</a>
 </section>
 
-<footer style="text-align:center;padding:40px;opacity:0.5;">
-  © 2026 Bariloche Free
-</footer>
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <img src="" id="lightbox-img">
+</div>
 
-<a class="whatsapp" href="https://wa.me/5492944204802" target="_blank">
+<!-- WHATSAPP (CAMBIAR NUMERO) -->
+<a class="whatsapp" href="https://wa.me/549XXXXXXXXXX" target="_blank">
   WhatsApp
 </a>
+
+<script>
+// LIGHTBOX
+const images = document.querySelectorAll('.gallery img');
+const lightbox = document.getElementById('lightbox');
+const lightImg = document.getElementById('lightbox-img');
+
+images.forEach(img=>{
+  img.addEventListener('click',()=>{
+    lightbox.classList.add('active');
+    lightImg.src = img.src;
+  });
+});
+
+lightbox.addEventListener('click',()=>{
+  lightbox.classList.remove('active');
+});
+
+// ANIMACIONES SCROLL
+const faders = document.querySelectorAll('.fade');
+
+window.addEventListener('scroll', ()=>{
+  faders.forEach(el=>{
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      el.classList.add('show');
+    }
+  });
+});
+</script>
 
 </body>
 </html>
